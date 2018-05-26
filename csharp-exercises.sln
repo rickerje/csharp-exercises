@@ -40,7 +40,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentIDs", "StudentIDs\St
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewGradebookDict", "NewGradebookDict\NewGradebookDict.csproj", "{6EFB217A-59D5-4E05-B44F-4AE462A55C19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "School", "School\School.csproj", "{CDC30E2F-B861-4C9D-AE59-79625383E4BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "School", "School\School.csproj", "{CDC30E2F-B861-4C9D-AE59-79625383E4BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurant", "Restaurant\Restaurant.csproj", "{BA91CFC8-D393-4874-9775-2E5357BF46EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -128,6 +130,10 @@ Global
 		{CDC30E2F-B861-4C9D-AE59-79625383E4BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDC30E2F-B861-4C9D-AE59-79625383E4BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDC30E2F-B861-4C9D-AE59-79625383E4BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA91CFC8-D393-4874-9775-2E5357BF46EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA91CFC8-D393-4874-9775-2E5357BF46EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA91CFC8-D393-4874-9775-2E5357BF46EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA91CFC8-D393-4874-9775-2E5357BF46EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
