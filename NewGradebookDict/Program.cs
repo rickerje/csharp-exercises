@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace GradebookDict
+namespace NewGradebookDict
 {
     public class Program
     {
@@ -28,20 +28,20 @@ namespace GradebookDict
             }
             while (newStudent != "");
 
-			// Print class roster
+            // Print class roster
 
-			StringBuilder myRoster = new StringBuilder();
+            StringBuilder myRoster = new StringBuilder();
 
-			myRoster.Append("\nClass roster:");
+            myRoster.Append("\nClass roster:");
 
-			foreach (KeyValuePair<string, double> student in students)
-			{
-				myRoster.Append(student.Key + " (" + student.Value.ToString() + ")\n");
-			}
+            foreach (KeyValuePair<string, double> student in students)
+            {
+                myRoster.Append(student.Key + " (" + student.Value.ToString() + ")\n");
+            }
 
-			Console.Write(myRoster);
+            Console.Write(myRoster);
 
-			/*Console.WriteLine("\nClass roster:");
+            /*Console.WriteLine("\nClass roster:");
             foreach (KeyValuePair<string, double> student in students)
             {
                 Console.WriteLine(student.Key + " (" + student.Value + ")");

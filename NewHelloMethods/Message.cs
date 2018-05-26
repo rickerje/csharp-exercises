@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace HelloMethods
+namespace NewHelloMethods
 {
     public class Message
     {
         public static string GetMessage(string lang)
         {
-            if (lang.Equals("sp")) {
+            if (lang.Equals("sp"))
+            {
                 return "Hola Mundo";
             }
             else if (lang.Equals("fr"))
