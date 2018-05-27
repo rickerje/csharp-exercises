@@ -5,11 +5,10 @@ namespace Restaurant
 {
     public class MenuItem
     {
-        public string Name;
-        public double Price;
-        public string Description;
-        public string Category;
-        public DateTime DateAddedToMenu;
+        public string Name { get; set; }
+        public double Price { get; set; }
+        public string Description { get; set; }
+        public string Category { get; set; }
 
         public MenuItem(string name, double price, string description, string category)
         {
@@ -18,47 +17,88 @@ namespace Restaurant
             Description = description;
             Category = category;
         }
-        public string printMenuItem()
+        public static void Print(MenuItem menuItem)
         {
-            return String.Format("{0} {1} {2}", Name, Description, Price);
+            throw new NotImplementedException();
         }
 
-        public override bool Equals(Object o)
+        public override bool Equals(object o)
         {
             if (o == null)
+                return false;
+            if (o.GetType() != typeof(MenuItem))
+                return false;
+            return Equals((MenuItem)o);
+        }
+        public bool Equals(MenuItem menuItem)
+        {
+            if (menuItem == null)
             {
                 return false;
             }
 
-            if (o.GetType() != GetType())
-            {
-                return false;
-            }
-
-            MenuItem menuObject = o as MenuItem;
-            return Name == menuObject.Name;
+            return menuItem.Name == this.Name;
         }
 
         public override int GetHashCode()
         {
-            return Name.GetHashCode();
+           return Name.GetHashCode();
+        }
+
+        public int GetHashCode(MenuItem menuItem)
+        {
+            return menuItem.Name.GetHashCode();
         }
 
     }
 
     public class Menu
     {
-        public List<MenuItem> menuItems;
-        public DateTime LastUpdated;
+        public Dictionary<MenuItem, DateTime> MenuItems { get; set; }
+        private DateTime LastUpdatedUtc;
         public string MenuType;
-
-
-        public Menu(MenuItem item, string menuType)
+        public DateTime LastUpdated
         {
-            menuItems.Add(item);
-            MenuType = menuType;
-            LastUpdated = DateTime.Now;
-            item.DateAddedToMenu = DateTime.Now;
+            get { return LastUpdatedUtc.ToLocalTime(); }
+        }
+
+        private const int NewInDays = 14;
+
+        public void AddMenuItem(MenuItem menuItem)
+        {
+            if(!MenuItems.ContainsKey(menuItem))
+            {
+                LastUpdatedUtc = DateTime.UtcNow;
+                this.MenuItems.Add(menuItem, LastUpdatedUtc);
+            }
+        }
+
+        public void RemoveMenuItem(MenuItem menuItem)
+        {
+            this.MenuItems.Remove(menuItem);
+        }
+
+        private bool IsNew(DateTime dateAdded)
+        {
+            return DateTime.UtcNow < dateAdded.AddDays(NewInDays);
+        }
+
+
+        public List<MenuItem> GetNewMenuItems()
+        {
+            List<MenuItem> newItems = new List<MenuItem>();
+            foreach(KeyValuePair<MenuItem, DateTime> item in MenuItems)
+            {
+                if (IsNew(item.Value))
+                    newItems.Add(item.Key);
+            }
+
+            return newItems;
+        }
+
+        public static void PrintMenu(Menu menu)
+        {
+            throw new NotImplementedException();
         }
     }
 
